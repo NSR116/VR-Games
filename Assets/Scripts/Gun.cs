@@ -11,7 +11,7 @@ public class Gun : UxrGrabbableObjectComponent<Gun>
     // Update is called once per frame
     void Update()
     {
-        if (this.IsBeingGrabbed)
+        if(UxrGrabManager.Instance.IsBeingGrabbed(GrabbableObject))
         {
             gunShoot.Play();
         }
