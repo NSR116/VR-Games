@@ -14,13 +14,11 @@ public class Gun : UxrGrabbableObjectComponent<Gun>
         if(UxrGrabManager.Instance.IsBeingGrabbed(GrabbableObject))
         {
             gunShoot.Play();
-            print("!!!!!");
         }
 
         else
         {
             gunShoot.Stop();
-            print("in else");
         }
     }
 }
