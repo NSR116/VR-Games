@@ -36,7 +36,7 @@ namespace UltimateXR.Examples.FullScene
         [Header("Relevant elements")] [SerializeField] private GameObject   _rootUnrestrictedArea;
         [SerializeField]                               private GameObject   _rootRestrictedArea;
         [SerializeField]                               private UxrComponent _mirrorComponent;
-        [SerializeField]                               private GameObject   _controllerRoomElements;
+       // [SerializeField]                               private GameObject   _controllerRoomElements;
         [SerializeField]                               private GameObject   _rootLabElements;
         [SerializeField]                               private ArmoredDoor  _armoredDoor;
 
@@ -155,22 +155,22 @@ namespace UltimateXR.Examples.FullScene
 
             if (UxrAvatar.LocalAvatar.CameraPosition.IsInsideBox(_boxSpawnRoomMirror))
             {
-                _controllerRoomElements.CheckSetActive(false);
+                //_controllerRoomElements.CheckSetActive(false);
                 _rootLabElements.CheckSetActive(false);
             }
             else if (UxrAvatar.LocalAvatar.CameraPosition.IsInsideBox(_boxSpawnRoomDoor))
             {
-                _controllerRoomElements.CheckSetActive(false);
+               // _controllerRoomElements.CheckSetActive(false);
                 _rootLabElements.CheckSetActive(true);
             }
             else if (UxrAvatar.LocalAvatar.CameraPosition.IsInsideBox(_boxCentralRoom) || UxrAvatar.LocalAvatar.CameraPosition.IsInsideBox(_boxLabRoom) || UxrAvatar.LocalAvatar.CameraPosition.IsInsideBox(_boxControllerRoom))
             {
-                _controllerRoomElements.CheckSetActive(true);
+               // _controllerRoomElements.CheckSetActive(true);
                 _rootLabElements.CheckSetActive(true);
             }
             else if (UxrAvatar.LocalAvatar.CameraPosition.IsInsideBox(_boxShootingRange))
             {
-                _controllerRoomElements.CheckSetActive(false);
+               // _controllerRoomElements.CheckSetActive(false);
                 _rootLabElements.CheckSetActive(false);
             }
         }
