@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CanInfo : MonoBehaviour
 {
-    private Vector3 canPosition;
-    private Vector3 canRotation;
+ 
+    public Vector3 canPosition;
+    public Vector3 canRotation;
+    public float timer = 0;
+    public bool flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -14,9 +17,28 @@ public class CanInfo : MonoBehaviour
         canRotation = transform.eulerAngles;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer >= 3)
+        {
+            flag= true;
+        }
+
+        else
+        {
+            flag = false;
+            timer= 0;
+        }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Ball" && flag)
+        {
+            CanManager.instance.resetPosition();
+        }
+    }
+
 }
