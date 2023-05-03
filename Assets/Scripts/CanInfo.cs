@@ -21,7 +21,7 @@ public class CanInfo : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 3 && flag)
+        if (timer >= 5 && flag)
         {
             CanManager.instance.resetPosition();
             flag = false;
