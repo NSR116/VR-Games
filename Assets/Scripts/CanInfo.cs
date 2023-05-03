@@ -21,23 +21,20 @@ public class CanInfo : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 3)
+        if (timer >= 3 && flag)
         {
-            flag= true;
+            CanManager.instance.resetPosition();
+            flag = false;
+            timer = 0;
         }
 
-        else
-        {
-            flag = false;
-            timer= 0;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "Ball" && flag)
+        if(collision.collider.tag == "Ball")
         {
-            CanManager.instance.resetPosition();
+            flag = true; 
         }
     }
 
