@@ -7,6 +7,7 @@ using System;
 public class CellManager : MonoBehaviour
 {
     public static CellManager instance;
+    [SerializeField] TextMeshProUGUI[] arrayText = new TextMeshProUGUI[9];
     private bool isX = true;
     private int[,] cells = { {0,0,0}, {0,0,0}, {0,0,0} };
     private int count = 0;
@@ -135,5 +136,22 @@ public class CellManager : MonoBehaviour
     public void changeVolume(GameObject s)
     {
         gameObject.GetComponent<AudioSource>().volume = s.GetComponent<Slider>().value;
+    }
+
+    public void replay()
+    {
+        for (int i = 0; i < cells.GetLength(0); i++)
+        {
+            for (int k = 0; k < cells.GetLength(1); k++)
+            {
+                cells[i, k] = 0;
+            }
+        }
+
+        for(int i =0; i<arrayText.Length; i++)
+        {
+            arrayText[i].text = "";
+        }
+            
     }
 }
